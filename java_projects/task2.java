@@ -9,26 +9,27 @@
 public class homework { 
     public static void main(String[] args) {
             for (int i = 0; i < 101; i++) {
-                if (i % 2 != 0) {    // != как поставить не равно? 02468 будут четные числа
+                if (i % 2 != 0) {    // != так поставить не равно 02468 будут четные числа
                     continue;
                 }
                 System.out.println(i);  // 13579 если число четное, то после  оператора continue вернись к i++, проверь условие и делай дальше
             }
     }
 }
-*/
+//* 
 class Answer {
     public static void printEvenNums() {
-    // Напишите свое решение ниже
+    
         for (int i = 2; i <= 100; i += 2) {
             System.out.println(i);
             }
     }
 }
-    // Не удаляйте этот класс - он нужен для вывода результатов на экран и проверки
-public class Printer {
+    //  класс для вывода результатов на экран и проверки
+public class task2 {
     public static void main(String[] args) {
         Answer ans = new Answer();
             ans.printEvenNums();
         }
 }
+*/
