@@ -1,6 +1,4 @@
-//*public class homework {
-    
-//}
+
 
 //* Задача 2. Вывод всех четных чисел от 1 до 100
 // Напишите метод printEvenNums, который выведет на экран все четные числа
@@ -16,7 +14,9 @@ public class homework {
             }
     }
 }
-//* 
+*/
+
+/**
 class Answer {
     public static void printEvenNums() {
     
@@ -29,7 +29,17 @@ class Answer {
 public class task2 {
     public static void main(String[] args) {
         Answer ans = new Answer();
-            ans.printEvenNums();
+            ans.printEvenNums(); // 2 4 6 8 не четные числа
         }
+}
+*/
+
+/**
+// Задача 2. Вывести все простые числа от 1 до 1000
+public class homework { 
+    public static void main(String[] args) {
+            for (int i = 0; i < 1000; i++) 
+                System.out.println(i);  // 0 1 2 3...999
+            }
 }
 */
