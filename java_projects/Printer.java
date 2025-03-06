@@ -1,9 +1,40 @@
-/** Задача 1. Вычислить n-ое треугольного число(сумма чисел от 1 до n), n! (произведение чисел от 1 до n)
- * 
- * (Задание 1. Нахождение факториала числа
+// Задача 1. Вычислить n-ое треугольного число(сумма чисел от 1 до n), n! (произведение чисел от 1 до n)
+class Answer {
+    public int countNTriangle(int n){
+if (n < 1) return -1;
+    int sum = 0;
+    for(int i = 1; i <= n; i++){
+          sum += i;
+    }
+    return sum;
+    }
+}
+
+public class Printer{ 
+    public static void main(String[] args) { 
+      int n = 0;
+
+      if (args.length == 0) {
+        n = 4;
+      }
+      else{
+        n = Integer.parseInt(args[0]);
+      }     
+
+      Answer ans = new Answer(); 
+      int itresume_res = ans.countNTriangle(n);     
+      System.out.println(itresume_res); //10
+    }
+}
+ 
+
+
+
+ /** (Задание 1. Нахождение факториала числа
 Напишите метод factorial, который принимает число n и возвращает его
 факториал. Если число n < 0, метод должен вернуть -1.)
-  */
+*/
+
 /**
 public class task1 {
     public int factorial(int n) {   
