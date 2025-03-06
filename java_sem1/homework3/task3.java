@@ -12,56 +12,63 @@ public class task3 {
 
 
 
-
-
-
-/** Задача 3. Подсчет суммы цифр числа
-Напишите метод sumDigits, который принимает целое число n и возвращает
-сумму его цифр.
-
-
-public class task3 {
-    public int sumDigits(int n) {
-        
-        int sum = 0;
-        while (n != 0) { //3.while для того, чтобы повторять операции с числами, пока само число не станет равно 0. В каждой итерации добавляйте последнюю цифру числа к сумме.
-            sum += n % 10; //1.остаток от деления- n % 10 вернет последнюю цифру числа n.
-            n /= 10; //2.После того как вы получили последнюю цифру числа, вам нужно удалить эту цифру из числа.
+class Calculator {
+    public double calculate(char op, int a, int b) {
+        switch (op) {
+            case '+':
+                return a + b;
+            case '-':
+                return a - b;
+            case '*':
+                return a * b;
+            case '/':
+                if (b != 0) {
+                    return (double) a / b;
+                } else {
+                    throw new ArithmeticException("Деление на ноль");
+                }
+            default:
+                throw new IllegalArgumentException("Некорректный оператор: '" + op + "'");
         }
-        return sum;
     }
 }
-        // класс - для вывода результатов на экран и проверки
+
+// Не удаляйте этот класс - он нужен для вывода результатов на экран и проверки
 class Printer {
     public static void main(String[] args) {
-        int n = 12345;
+        int a = 0;
+        char op = ' ';
+        int b = 0;
 
-        if (args.length > 0) {
-            n = Integer.parseInt(args[0]);
+        if (args.length == 0) {
+            // При отправке кода на Выполнение, вы можете варьировать эти параметры
+            a = 3;
+            op = '+';
+            b = 7;
+        } else {
+            try {
+                a = Integer.parseInt(args[0]);
+                op = args[1].charAt(0);
+                b = Integer.parseInt(args[2]);
+            } catch (NumberFormatException e) {
+                System.out.println("Неверный формат числа");
+                return;
+            }
         }
-        // Вывод результата на экран
-        task3 ans = new task3();
-        int itresume_res = ans.sumDigits(n);
-        System.out.println(itresume_res); //15
-    }
-} 
- */ 
 
-
-// 2 способ:
-/** 
-import java.util.Scanner;
-public class task3 { // почему меняет название?
-    public static void main(String[] args) {
-        int sum = 0, i = 0;
-        while (i < 100)
-        {
-            i++;
-            if (i % 3 == 0)
-                continue;
-            sum += i;
+        Calculator calculator = new Calculator();
+        try {
+            double result = calculator.calculate(op, a, b);
+            System.out.println(result);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        } catch (ArithmeticException e) {
+            System.out.println("Ошибка арифметической операции: " + e.getMessage());
         }
-        System.out.println(sum); //3367
     }
 }
-*/
+ // 10 
+
+//(дополнительное задание 4.) Задано уравнение вида q + w = e, q, w, e >= 0. Некоторые цифры могут быть
+//заменены знаком вопроса, например 2? + ?5 = 69. Требуется восстановить выражение до верного
+//равенства. Предложить хотя бы одно решение или сообщить, что его нет. (Не решила)
